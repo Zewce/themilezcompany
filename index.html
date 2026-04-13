@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Milez Company, LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0a0f1e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --gray: #8a8fa8;
+    --card-bg: #111827;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--cream);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* Background texture */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% -10%, rgba(201,168,76,0.12) 0%, transparent 60%),
+      radial-gradient(ellipse 40% 40% at 90% 80%, rgba(201,168,76,0.06) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Grid lines */
+  body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 28px 60px;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--gold);
+  }
+
+  .nav-badge {
+    font-size: 0.7rem;
+    font-weight: 300;
+    color: var(--gray);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 100px 40px 80px;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(3rem, 7vw, 6rem);
+    font-weight: 900;
+    line-height: 1.05;
+    color: var(--white);
+    max-width: 800px;
+    margin-bottom: 12px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.35s;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+
+  .hero-divider {
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 32px auto;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 0.55s;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    font-weight: 300;
+    line-height: 1.8;
+    color: var(--gray);
+    max-width: 580px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.65s;
+  }
+
+  .hero-desc strong {
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  /* PRODUCTS */
+  .products-section {
+    position: relative;
+    z-index: 1;
+    padding: 60px 40px 100px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 0.68rem;
+    letter-spacing: 0.35em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards 0.9s;
+  }
+
+  .products-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .product-card {
+    background: var(--card-bg);
+    border: 1px solid rgba(201,168,76,0.12);
+    border-radius: 2px;
+    padding: 44px 40px;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards;
+  }
+
+  .product-card:nth-child(1) { animation-delay: 1.0s; }
+  .product-card:nth-child(2) { animation-delay: 1.15s; }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(201,168,76,0.07) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .product-card:hover {
+    border-color: rgba(201,168,76,0.45);
+    transform: translateY(-4px);
+  }
+
+  .product-card:hover::before { opacity: 1; }
+
+  .product-card-accent {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--gold), transparent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s ease;
+  }
+
+  .product-card:hover .product-card-accent { transform: scaleX(1); }
+
+  .product-tag {
+    display: inline-block;
+    font-size: 0.62rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.2);
+    padding: 4px 10px;
+    border-radius: 1px;
+    margin-bottom: 20px;
+  }
+
+  .product-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 14px;
+    line-height: 1.2;
+  }
+
+  .product-desc {
+    font-size: 0.9rem;
+    font-weight: 300;
+    color: var(--gray);
+    line-height: 1.75;
+    margin-bottom: 32px;
+  }
+
+  .product-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    font-weight: 500;
+    transition: gap 0.3s ease;
+  }
+
+  .product-card:hover .product-link { gap: 14px; }
+
+  .product-link-arrow {
+    font-size: 1rem;
+    transition: transform 0.3s ease;
+  }
+
+  .product-card:hover .product-link-arrow { transform: translateX(4px); }
+
+  /* FOOTER */
+  footer {
+    position: relative;
+    z-index: 1;
+    border-top: 1px solid rgba(201,168,76,0.1);
+    padding: 36px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy {
+    font-size: 0.75rem;
+    color: var(--gray);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-mark {
+    font-family: 'Playfair Display', serif;
+    font-size: 0.85rem;
+    color: rgba(201,168,76,0.4);
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 700px) {
+    nav { padding: 20px 24px; }
+    .hero { padding: 70px 24px 60px; }
+    .products-section { padding: 40px 24px 80px; }
+    .products-grid { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 12px; text-align: center; padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div>
+    <div class="nav-logo">The Milez Company</div>
+    <div class="nav-badge">LLC</div>
+  </div>
+</nav>
+
+<section class="hero">
+  <p class="hero-eyebrow">Innovation · Technology · Healthcare</p>
+  <h1 class="hero-title">Built to <em>Elevate</em><br>Every Industry We Touch</h1>
+  <div class="hero-divider"></div>
+  <p class="hero-desc">
+    The Milez Company is a <strong>multi-venture technology company</strong> developing intelligent software solutions across healthcare, construction, and beyond — transforming complex workflows into powerful, effortless experiences.
+  </p>
+</section>
+
+<section class="products-section">
+  <p class="section-label">Our Ventures</p>
+  <div class="products-grid">
+
+    <a href="https://peakrph.com" target="_blank" rel="noopener" class="product-card">
+      <div class="product-card-accent"></div>
+      <span class="product-tag">Healthcare · Pharmacy</span>
+      <div class="product-name">PeakRPh</div>
+      <p class="product-desc">Clinical intelligence SaaS designed for independent pharmacies — AI-powered tools to optimize patient outcomes, streamline operations, and elevate the standard of care.</p>
+      <span class="product-link">Visit PeakRPh <span class="product-link-arrow">→</span></span>
+    </a>
+
+    <a href="https://turboquote.app" target="_blank" rel="noopener" class="product-card">
+      <div class="product-card-accent"></div>
+      <span class="product-tag">Construction · Estimating</span>
+      <div class="product-name">TurboQuote</div>
+      <p class="product-desc">AI-powered residential construction estimating — generate accurate, professional quotes in minutes, not hours. Built for contractors who demand speed without sacrificing precision.</p>
+      <span class="product-link">Visit TurboQuote <span class="product-link-arrow">→</span></span>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <span class="footer-copy">© 2026 The Milez Company, LLC. All rights reserved.</span>
+  <span class="footer-mark">TMC</span>
+</footer>
+
+</body>
+</html>
