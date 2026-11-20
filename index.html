@@ -505,6 +505,9 @@
     transition: gap 0.3s, color 0.2s;
   }
   .product-card:hover .product-link { gap: 14px; color: var(--brass); }
+  .product-name .tm { font-family: 'DM Sans', sans-serif; font-size: 0.35em; vertical-align: super; margin-left: 2px; color: var(--gray-mid); letter-spacing: 0; }
+  .ventures-note { margin: 36px auto 0; max-width: 640px; text-align: center; font-size: 0.8rem; font-weight: 300; line-height: 1.7; color: var(--gray-mid); }
+  .ventures-note strong { color: var(--gray-light); font-weight: 500; }
 
   /* ── FOOTER ── */
   footer {
@@ -847,17 +850,19 @@
   <div class="products-grid">
     <a href="https://turboquote.app" target="_blank" rel="noopener" class="product-card reveal" style="--d:0s">
       <span class="product-tag">Construction · Estimating</span>
-      <div class="product-name">TurboQuote</div>
+      <div class="product-name">TurboQuote<sup class="tm">®</sup></div>
       <p class="product-desc">Estimating software for residential contractors, built by people who write real estimates every week. Your estimate isn't generated — it's calculated. Run the same job twice, get the same number, and every line traces to a rule you can show your client.</p>
       <span class="product-link">Visit TurboQuote &nbsp;→</span>
     </a>
     <a href="https://peakrph.com" target="_blank" rel="noopener" class="product-card reveal" style="--d:0.12s">
       <span class="product-tag">Healthcare · Pharmacy</span>
-      <div class="product-name">PeakRPh</div>
+      <div class="product-name">PeakRPh<sup class="tm">®</sup></div>
       <p class="product-desc">Clinical intelligence for independent pharmacies — giving pharmacists the insights they need to deliver better patient care without the manual busywork.</p>
       <span class="product-link">Visit PeakRPh &nbsp;→</span>
     </a>
   </div>
+
+  <p class="ventures-note reveal">Also from The Milez Company: faith-based iPhone apps for men's and women's discipleship — <strong>The Armory</strong> and <strong>Strength &amp; Dignity</strong>, coming to the App Store.</p>
 </section>
 
 <!-- FOOTER -->
