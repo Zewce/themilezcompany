@@ -5,6 +5,40 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>The Milez Company, LLC — Renovation &amp; Project Management, Upstate SC</title>
 <meta name="description" content="The Milez Company, LLC — renovation and remodeling project management in Upstate South Carolina. Real transformations, planned and built around your goals, budget, and timeline.">
+<link rel="canonical" href="https://www.themilezcompany.com/">
+<meta name="theme-color" content="#000000">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+<!-- Link previews (Facebook, Instagram, iMessage, LinkedIn, X) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="The Milez Company">
+<meta property="og:url" content="https://www.themilezcompany.com/">
+<meta property="og:title" content="The Milez Company — Renovation &amp; Remodeling, Upstate SC">
+<meta property="og:description" content="Kitchens, baths, remodels and full renovations across Travelers Rest, Greenville and the Upstate. Planned around your goals, budget and timeline.">
+<meta property="og:image" content="https://www.themilezcompany.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="The Milez Company logo beside a finished kitchen renovation">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "The Milez Company, LLC",
+  "url": "https://www.themilezcompany.com/",
+  "logo": "https://www.themilezcompany.com/icon-512.png",
+  "image": "https://www.themilezcompany.com/og-image.jpg",
+  "telephone": "+1-864-610-4741",
+  "email": "projects@themilezcompany.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Travelers Rest", "addressRegion": "SC", "postalCode": "29690", "addressCountry": "US" },
+  "areaServed": ["Travelers Rest, SC", "Greenville, SC", "Easley, SC", "Anderson, SC", "Upstate South Carolina"],
+  "knowsLanguage": ["en", "es"],
+  "sameAs": ["https://www.facebook.com/TheMilezCompany", "https://www.instagram.com/themilezcompany/"]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -456,6 +490,48 @@
   .cta-email a { color: var(--gray-mid); text-decoration: none; transition: color 0.2s; }
   .cta-email a:hover { color: var(--brass); }
 
+
+  /* ── PHONE / CALL-TEXT ── */
+  .cta-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; margin-top: 36px; }
+  .cta-actions .cta-btn { margin-top: 0; }
+  .cta-btn.solid { background: var(--white); color: var(--black); border-color: var(--white); }
+  .cta-btn.solid:hover { background: var(--brass); border-color: var(--brass); color: var(--black); }
+  .cta-phone { display: block; margin-top: 22px; font-size: 0.9rem; letter-spacing: 0.12em; color: var(--gray-light); }
+  .cta-phone a { color: var(--white); text-decoration: none; }
+  .cta-phone a:hover { color: var(--brass); }
+  .footer-right a { color: inherit; text-decoration: none; }
+  .footer-right a:hover { color: var(--brass); }
+  .mobile-bar { display: none; }
+  @media (max-width: 680px) {
+    .mobile-bar {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      position: fixed; left: 0; right: 0; bottom: 0; z-index: 50;
+      background: rgba(0,0,0,0.94); border-top: 1px solid var(--border-hover);
+      padding-bottom: env(safe-area-inset-bottom);
+      -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+    }
+    .mobile-bar a {
+      padding: 15px 0; text-align: center; text-decoration: none;
+      font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--white);
+    }
+    .mobile-bar a + a { border-left: 1px solid var(--border); }
+    .mobile-bar a:first-child { color: var(--brass); }
+    body { padding-bottom: calc(52px + env(safe-area-inset-bottom)); }
+    .nav-cta { display: none; }
+  }
+
+  .socials { display: flex; justify-content: center; gap: 14px; margin-top: 28px; }
+  .socials a {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 10px 16px; border: 1px solid var(--border);
+    font-size: 0.66rem; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--gray-light); text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .socials a:hover { border-color: var(--brass); color: var(--brass); }
+  .socials svg { width: 16px; height: 16px; fill: currentColor; }
+  .socials svg[fill="none"] { fill: none; }
+
   /* ── TECH VENTURES ── */
   .ventures-section {
     position: relative; z-index: 1;
@@ -588,6 +664,13 @@
 <body>
 
 <div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Mobile call / text / email bar -->
+<div class="mobile-bar" aria-label="Contact The Milez Company">
+  <a href="tel:+18646104741">Call</a>
+  <a href="sms:+18646104741">Text</a>
+  <a href="mailto:projects@themilezcompany.com?subject=Project%20inquiry">Email</a>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -837,8 +920,15 @@
 <section class="cta-section" id="contact">
   <h2 class="cta-title reveal">Have a before?<br>Let's build the <em>after</em>.</h2>
   <p class="cta-sub reveal" style="--d:0.1s">Tell us about your project — we'll come back with a plan.</p>
-  <a class="cta-btn reveal" style="--d:0.2s" href="mailto:projects@themilezcompany.com?subject=Project%20inquiry">Start Your Project &nbsp;→</a>
-  <span class="cta-email reveal" style="--d:0.3s">or email us directly at <a href="mailto:projects@themilezcompany.com">projects@themilezcompany.com</a></span>
+  <div class="cta-actions reveal" style="--d:0.2s">
+    <a class="cta-btn solid" href="tel:+18646104741">Call or Text &nbsp;(864) 610-4741</a>
+    <a class="cta-btn" href="mailto:projects@themilezcompany.com?subject=Project%20inquiry">Email Us &nbsp;→</a>
+  </div>
+  <span class="cta-email reveal" style="--d:0.3s"><a href="sms:+18646104741">Text us</a> &nbsp;·&nbsp; <a href="mailto:projects@themilezcompany.com">projects@themilezcompany.com</a></span>
+  <div class="socials reveal" style="--d:0.4s">
+    <a href="https://www.facebook.com/TheMilezCompany" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 8h3V4h-3c-2.8 0-4.5 1.8-4.5 4.6V11H7v4h2.5v9h4v-9h3l.5-4h-3.5V8.8c0-.5.3-.8.5-.8z"/></svg>Facebook</a>
+    <a href="https://www.instagram.com/themilezcompany/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.4" cy="6.6" r="0.9" fill="currentColor" stroke="none"/></svg>Instagram</a>
+  </div>
 </section>
 
 <!-- TECH VENTURES -->
@@ -868,7 +958,7 @@
 <!-- FOOTER -->
 <footer>
   <span class="footer-copy">© 2026 The Milez Company, LLC · Travelers Rest, SC. All rights reserved.</span>
-  <span class="footer-right"><a href="mailto:projects@themilezcompany.com">projects@themilezcompany.com</a> &nbsp;·&nbsp; themilezcompany.com</span>
+  <span class="footer-right"><a href="tel:+18646104741">(864) 610-4741</a> &nbsp;·&nbsp; <a href="mailto:projects@themilezcompany.com">projects@themilezcompany.com</a> &nbsp;·&nbsp; <a href="https://www.facebook.com/TheMilezCompany" target="_blank" rel="noopener">Facebook</a> &nbsp;·&nbsp; <a href="https://www.instagram.com/themilezcompany/" target="_blank" rel="noopener">Instagram</a></span>
 </footer>
 
 <script>
